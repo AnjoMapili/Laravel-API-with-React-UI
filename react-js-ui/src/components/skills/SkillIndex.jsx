@@ -42,13 +42,13 @@ export default function SkillIndex() {
                   <td className="px-6 py-4 space-x-2">
                     <Link
                       to={`/skills/${skill.id}/edit`}
-                      className="px-4 py-2 bg-green-500 hover:bg-green-700 text-white rounded-md"
+                      className="px-6 py-2.5 bg-green-500 hover:bg-green-700 text-white rounded-md"
                     >
                       Edit
                     </Link>
                     <button
                       onClick={() => deleteSkill(skill.id)}
-                      className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
+                      className="px-4 py-2.5 bg-red-500 hover:bg-red-700 text-white rounded-md"
                     >
                       Delete
                     </button>
