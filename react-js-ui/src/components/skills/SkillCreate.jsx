@@ -1,15 +1,8 @@
-import { useState } from "react";
+import { useContext } from "react";
+import SkillContext from "../../Context/SkillContext";
 
-export default function SkillCreate() {
-  const [formValues, setFormValues] = useState({
-    name: "",
-    lastname: "",
-  });
-
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+export const SkillCreate = () => {
+  const { formValues, onChange } = useContext(SkillContext);
   return (
     <div className="mt-12">
       <form className="max-w-md mx-auto p-4 bg-white shadow-md rounded-sm">
@@ -50,4 +43,6 @@ export default function SkillCreate() {
       </form>
     </div>
   );
-}
+};
+
+export default SkillCreate;
