@@ -1,9 +1,9 @@
 import { Routes, Route, Link } from "react-router-dom";
 
-import { Home } from "./components/Home";
-import { SkillIndex } from "./components/skills/SkillIndex";
-import { SkillCreate } from "./components/skills/SkillCreate";
-import { SkillEdit } from "./components/skills/SkillEdit";
+import Home from "./components/Home";
+import SkillIndex from "./components/skills/SkillIndex";
+import SkillCreate from "./components/skills/SkillCreate";
+import SkillEdit from "./components/skills/SkillEdit";
 
 function App() {
   return (
@@ -19,6 +19,12 @@ function App() {
             </li>
           </ul>
         </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/skills" element={<SkillIndex />} />
+          <Route path="/skills/create" element={<SkillCreate />} />
+          <Route path="/skills/:id/edit" element={<SkillEdit />} />
+        </Routes>
       </div>
     </div>
   );
