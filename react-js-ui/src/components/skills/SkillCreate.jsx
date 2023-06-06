@@ -1,6 +1,15 @@
-import React from "react";
+import { useState } from "react";
 
 export default function SkillCreate() {
+  const [formValues, setFormValues] = useState({
+    name: "",
+    lastname: "",
+  });
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
   return (
     <div className="mt-12">
       <form className="max-w-md mx-auto p-4 bg-white shadow-md rounded-sm">
@@ -10,6 +19,9 @@ export default function SkillCreate() {
               Name
             </label>
             <input
+              name="name"
+              value={formValues["name"]}
+              onChange={onChange}
               className="border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2 "
               type="text"
             />
@@ -22,6 +34,9 @@ export default function SkillCreate() {
               LastName
             </label>
             <input
+              name="lastname"
+              value={formValues["lastname"]}
+              onChange={onChange}
               className="border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2 "
               type="text"
             />
