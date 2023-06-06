@@ -67,6 +67,11 @@ export const SkillProvider = ({ children }) => {
       }
     }
   };
+
+  const deleteSkill = async (id) => {
+    await axios.delete("skills/" + id);
+    getSkills();
+  };
   return (
     <SkillContext.Provider
       value={{
@@ -79,6 +84,7 @@ export const SkillProvider = ({ children }) => {
         storeSkill,
         errors,
         updateSkill,
+        deleteSkill,
       }}
     >
       {children}
