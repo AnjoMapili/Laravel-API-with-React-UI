@@ -39,7 +39,14 @@ export default function SkillIndex() {
                 >
                   <td className="px-6 py-4">{skill.name}</td>
                   <td className="px-6 py-4">{skill.lastname}</td>
-                  <td className="px-6 py-4">edit/delete</td>
+                  <td className="px-6 py-4">
+                    <Link
+                      to={`/skills/${skill.id}/edit`}
+                      className="px-4 py-2 bg-green-500 hover:bg-green-700 text-white rounded-md"
+                    >
+                      Edit
+                    </Link>
+                  </td>
                 </tr>
               );
             })}

@@ -32,8 +32,13 @@ export const SkillProvider = ({ children }) => {
 
   // get input by id
   const getSkill = async (id) => {
-    const response = await axios.get("skills/ + id");
-    setSkill(response.data.data);
+    const response = await axios.get("skills/" + id);
+    const apiSkill = response.data.data;
+    setSkill(apiSkill);
+    setFormValues({
+      name: apiSkill.name,
+      lastname: apiSkill.lastname,
+    });
   };
   // get input by id
 
@@ -41,6 +46,19 @@ export const SkillProvider = ({ children }) => {
     e.preventDefault();
     try {
       await axios.post("skills", formValues);
+      getSkills();
+      navigate("/skills");
+    } catch (e) {
+      if (e.response.status === 422) {
+        setErros(e.response.data.errors);
+      }
+    }
+  };
+
+  const updateSkill = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put("skills/" + skill.id, formValues);
       getSkills();
       navigate("/skills");
     } catch (e) {
@@ -60,6 +78,7 @@ export const SkillProvider = ({ children }) => {
         formValues,
         storeSkill,
         errors,
+        updateSkill,
       }}
     >
       {children}
